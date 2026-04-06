@@ -8,14 +8,7 @@ SignalStack is a lead-generation operating system for local service businesses s
 - A dashboard for pipeline, campaigns, and buyer capacity
 - CSV export for sold or routed leads
 
-## Why this architecture
-
-This build is designed to start quickly without dependency installs or API keys. It avoids fragile scraping and instead focuses on the durable model:
-
-- Acquire demand through paid traffic, owned landing pages, referrals, and approved webhooks
-- Qualify and score leads in real time
-- Route each lead to the best buyer based on geography, quality threshold, and capacity
-- Track outreach so your team can follow up fast and measure conversion
+ARJUN PATEL 
 
 ## Run it
 
