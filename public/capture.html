@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Request Service Quotes | SignalStack</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="capture-shell">
+    <div class="ambient ambient-three"></div>
+
+    <main class="capture-page">
+      <section class="capture-hero rise-in">
+        <div class="capture-copy">
+          <p class="eyebrow">Fast Local Quotes</p>
+          <h1>Get matched with a trusted local service pro.</h1>
+          <p>
+            Request quotes for detailing, lawn care, pressure washing, or window cleaning. We
+            respond fast and route your request to operators with open capacity in your area.
+          </p>
+
+          <div class="trust-grid">
+            <article class="trust-card">
+              <strong>5 minute ops window</strong>
+              <span>Fast review and qualification.</span>
+            </article>
+            <article class="trust-card">
+              <strong>Local routing</strong>
+              <span>Matched by city, service, and availability.</span>
+            </article>
+            <article class="trust-card">
+              <strong>Consent first</strong>
+              <span>No request enters outreach without permission.</span>
+            </article>
+          </div>
+        </div>
+
+        <form id="capture-form" class="capture-form panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Request a Quote</p>
+              <h2>Tell us what you need</h2>
+            </div>
+          </div>
+
+          <label>
+            <span>Full name</span>
+            <input name="name" required placeholder="Jordan Mendez">
+          </label>
+          <label>
+            <span>Phone</span>
+            <input name="phone" required placeholder="813-555-0141">
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" placeholder="jordan@example.com">
+          </label>
+          <label>
+            <span>City</span>
+            <input name="city" required placeholder="Tampa">
+          </label>
+          <label>
+            <span>ZIP</span>
+            <input name="zip" placeholder="33602">
+          </label>
+          <label>
+            <span>Service</span>
+            <select name="serviceType">
+              <option value="detailing">Auto Detailing</option>
+              <option value="lawn-care">Lawn Care</option>
+              <option value="pressure-washing">Pressure Washing</option>
+              <option value="window-cleaning">Window Cleaning</option>
+            </select>
+          </label>
+          <label>
+            <span>Urgency</span>
+            <select name="urgency">
+              <option value="today">Today</option>
+              <option value="this-week" selected>This Week</option>
+              <option value="this-month">This Month</option>
+              <option value="researching">Researching</option>
+            </select>
+          </label>
+          <label>
+            <span>Budget comfort</span>
+            <select name="budgetBand">
+              <option value="premium">Premium</option>
+              <option value="mid" selected>Mid</option>
+              <option value="value">Value</option>
+            </select>
+          </label>
+          <label>
+            <span>Property type</span>
+            <select name="propertyType">
+              <option value="homeowner" selected>Homeowner</option>
+              <option value="commercial">Commercial</option>
+              <option value="renter">Renter</option>
+            </select>
+          </label>
+          <label class="full-span">
+            <span>Anything we should know?</span>
+            <textarea name="message" rows="4" placeholder="Vehicle type, lot size, surfaces, timing, or constraints"></textarea>
+          </label>
+          <label class="inline-check full-span">
+            <input type="checkbox" name="consentGiven" checked required>
+            <span>I agree to be contacted about this request.</span>
+          </label>
+          <button type="submit" class="button">Request Quotes</button>
+          <p id="capture-status" class="micro-copy"></p>
+        </form>
+      </section>
+    </main>
+
+    <script type="module" src="/capture.js"></script>
+  </body>
+</html>

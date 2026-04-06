@@ -1,0 +1,423 @@
+{
+  "buyers": [
+    {
+      "id": "buyer-shinecraft",
+      "name": "ShineCraft Auto Spa",
+      "serviceTypes": ["detailing"],
+      "territories": ["Tampa", "St Petersburg", "Clearwater"],
+      "active": true,
+      "pricePerLead": 55,
+      "monthlyDemand": 140,
+      "qualityFloor": 76,
+      "preferredChannels": ["sms", "email"],
+      "closeRate": 0.37,
+      "notes": "Premium detailing buyer with weekend capacity."
+    },
+    {
+      "id": "buyer-greenline",
+      "name": "Greenline Lawn Co",
+      "serviceTypes": ["lawn-care"],
+      "territories": ["Tampa", "Brandon", "Riverview"],
+      "active": true,
+      "pricePerLead": 38,
+      "monthlyDemand": 200,
+      "qualityFloor": 68,
+      "preferredChannels": ["sms", "call"],
+      "closeRate": 0.32,
+      "notes": "Buys recurring mowing and lawn cleanup leads."
+    },
+    {
+      "id": "buyer-primewash",
+      "name": "Prime Wash Exteriors",
+      "serviceTypes": ["pressure-washing", "window-cleaning"],
+      "territories": ["Orlando", "Kissimmee", "Winter Park"],
+      "active": true,
+      "pricePerLead": 42,
+      "monthlyDemand": 110,
+      "qualityFloor": 70,
+      "preferredChannels": ["email", "call"],
+      "closeRate": 0.29,
+      "notes": "Wants exterior cleaning leads inside a 20-mile radius."
+    },
+    {
+      "id": "buyer-apex",
+      "name": "Apex Curb Appeal",
+      "serviceTypes": ["detailing", "lawn-care"],
+      "territories": ["Austin", "Round Rock", "Cedar Park"],
+      "active": true,
+      "pricePerLead": 48,
+      "monthlyDemand": 150,
+      "qualityFloor": 72,
+      "preferredChannels": ["sms", "email"],
+      "closeRate": 0.35,
+      "notes": "Hybrid buyer for Texas expansion."
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "campaign-spring-detail",
+      "name": "Spring Detail Burst",
+      "source": "Meta Lead Ads",
+      "status": "live",
+      "spend": 1350,
+      "targetCpl": 21,
+      "currentCpl": 18,
+      "dailyLeadTarget": 14,
+      "services": ["detailing"],
+      "cities": ["Tampa", "St Petersburg", "Clearwater"]
+    },
+    {
+      "id": "campaign-lawn-rescue",
+      "name": "Lawn Rescue Always-On",
+      "source": "Landing Page",
+      "status": "live",
+      "spend": 890,
+      "targetCpl": 16,
+      "currentCpl": 14,
+      "dailyLeadTarget": 20,
+      "services": ["lawn-care"],
+      "cities": ["Tampa", "Brandon", "Riverview"]
+    },
+    {
+      "id": "campaign-surface-refresh",
+      "name": "Exterior Surface Refresh",
+      "source": "Google Search",
+      "status": "testing",
+      "spend": 460,
+      "targetCpl": 24,
+      "currentCpl": 27,
+      "dailyLeadTarget": 7,
+      "services": ["pressure-washing", "window-cleaning"],
+      "cities": ["Orlando", "Winter Park", "Kissimmee"]
+    }
+  ],
+  "playbooks": [
+    {
+      "id": "playbook-detailing",
+      "name": "Detailing Velocity",
+      "serviceTypes": ["detailing"],
+      "steps": [
+        {
+          "delayMinutes": 0,
+          "audience": "lead",
+          "channel": "sms",
+          "message": "Hi {leadName}, we received your {serviceLabel} request in {city}. Reply YES and we will line up a vetted local shop fast."
+        },
+        {
+          "delayMinutes": 10,
+          "audience": "lead",
+          "channel": "call",
+          "message": "Call {leadName} to confirm vehicle type, timing, and address."
+        },
+        {
+          "delayMinutes": 18,
+          "audience": "buyer",
+          "channel": "email",
+          "subject": "New detailing lead in {city}",
+          "message": "Route to {buyerName}: {leadName}, {phone}, {email}, budget {budgetBand}, urgency {urgency}."
+        }
+      ]
+    },
+    {
+      "id": "playbook-lawn",
+      "name": "Recurring Lawn Conversion",
+      "serviceTypes": ["lawn-care"],
+      "steps": [
+        {
+          "delayMinutes": 0,
+          "audience": "lead",
+          "channel": "sms",
+          "message": "We received your {serviceLabel} request in {city}. Reply with your address and gate details so we can quote correctly."
+        },
+        {
+          "delayMinutes": 15,
+          "audience": "buyer",
+          "channel": "sms",
+          "message": "New lawn lead for {buyerName}: {leadName}, {phone}, {city}, urgency {urgency}."
+        }
+      ]
+    },
+    {
+      "id": "playbook-default",
+      "name": "General Qualification",
+      "serviceTypes": ["default"],
+      "steps": [
+        {
+          "delayMinutes": 0,
+          "audience": "lead",
+          "channel": "email",
+          "subject": "We received your request",
+          "message": "Thanks {leadName}. We received your {serviceLabel} request in {city} and will review it shortly."
+        }
+      ]
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead-1001",
+      "createdAt": "2026-04-06T12:40:00.000Z",
+      "updatedAt": "2026-04-06T12:40:00.000Z",
+      "name": "Ariana Lopez",
+      "email": "ariana@example.com",
+      "phone": "813-555-0112",
+      "city": "Tampa",
+      "zip": "33602",
+      "serviceType": "detailing",
+      "source": "Meta Lead Ads",
+      "campaign": "spring-detail-burst",
+      "urgency": "this-week",
+      "budgetBand": "premium",
+      "propertyType": "homeowner",
+      "contactPreference": "sms",
+      "consentGiven": true,
+      "message": "Need an SUV interior detail before a road trip next week.",
+      "score": 92,
+      "grade": "A+",
+      "scoreReasons": [
+        "Meta lead flow produced a high-intent request.",
+        "Buyer coverage exists in Tampa."
+      ],
+      "buyerId": "buyer-shinecraft",
+      "status": "qualified",
+      "pricePerLead": 55,
+      "notes": [
+        {
+          "id": "note-1001",
+          "text": "Asked for a weekend appointment.",
+          "createdAt": "2026-04-06T12:41:00.000Z",
+          "author": "ops"
+        }
+      ],
+      "timeline": [
+        {
+          "id": "evt-1001",
+          "label": "Lead captured from Meta Lead Ads",
+          "timestamp": "2026-04-06T12:40:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "lead-1002",
+      "createdAt": "2026-04-06T11:20:00.000Z",
+      "updatedAt": "2026-04-06T11:20:00.000Z",
+      "name": "Marcus Hill",
+      "email": "marcus.hill@example.com",
+      "phone": "813-555-0198",
+      "city": "Brandon",
+      "zip": "33510",
+      "serviceType": "lawn-care",
+      "source": "Landing Page",
+      "campaign": "lawn-rescue",
+      "urgency": "today",
+      "budgetBand": "mid",
+      "propertyType": "homeowner",
+      "contactPreference": "call",
+      "consentGiven": true,
+      "message": "Weekly mowing and edging for a corner lot.",
+      "score": 85,
+      "grade": "A",
+      "scoreReasons": [
+        "Urgent recurring lawn request.",
+        "Strong territory fit for Greenline."
+      ],
+      "buyerId": "buyer-greenline",
+      "status": "routed",
+      "pricePerLead": 38,
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt-1002",
+          "label": "Buyer SMS sent",
+          "timestamp": "2026-04-06T11:36:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "lead-1003",
+      "createdAt": "2026-04-06T10:05:00.000Z",
+      "updatedAt": "2026-04-06T10:05:00.000Z",
+      "name": "Nina Patel",
+      "email": "nina@example.com",
+      "phone": "407-555-0177",
+      "city": "Orlando",
+      "zip": "32801",
+      "serviceType": "pressure-washing",
+      "source": "Google Search",
+      "campaign": "surface-refresh",
+      "urgency": "this-month",
+      "budgetBand": "mid",
+      "propertyType": "homeowner",
+      "contactPreference": "email",
+      "consentGiven": true,
+      "message": "Driveway and pool deck cleaning before hosting.",
+      "score": 78,
+      "grade": "A",
+      "scoreReasons": [
+        "Search lead with strong service intent.",
+        "Prime Wash territory match found."
+      ],
+      "buyerId": "buyer-primewash",
+      "status": "qualified",
+      "pricePerLead": 42,
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt-1003",
+          "label": "Lead captured from Google Search",
+          "timestamp": "2026-04-06T10:05:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "lead-1004",
+      "createdAt": "2026-04-06T09:15:00.000Z",
+      "updatedAt": "2026-04-06T09:15:00.000Z",
+      "name": "Devin Carter",
+      "email": "devin@example.com",
+      "phone": "512-555-0164",
+      "city": "Austin",
+      "zip": "78701",
+      "serviceType": "detailing",
+      "source": "Partner Referral",
+      "campaign": "texas-partners",
+      "urgency": "researching",
+      "budgetBand": "premium",
+      "propertyType": "homeowner",
+      "contactPreference": "sms",
+      "consentGiven": true,
+      "message": "Shopping monthly ceramic maintenance package.",
+      "score": 73,
+      "grade": "B",
+      "scoreReasons": [
+        "Premium budget but lower urgency.",
+        "Apex can accept Austin detailing demand."
+      ],
+      "buyerId": "buyer-apex",
+      "status": "new",
+      "pricePerLead": 48,
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt-1004",
+          "label": "Lead captured from Partner Referral",
+          "timestamp": "2026-04-06T09:15:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "lead-1005",
+      "createdAt": "2026-04-05T18:20:00.000Z",
+      "updatedAt": "2026-04-05T18:20:00.000Z",
+      "name": "Lori Sanders",
+      "email": "lori@example.com",
+      "phone": "727-555-0114",
+      "city": "Clearwater",
+      "zip": "33755",
+      "serviceType": "detailing",
+      "source": "Website Form",
+      "campaign": "always-on",
+      "urgency": "this-week",
+      "budgetBand": "mid",
+      "propertyType": "homeowner",
+      "contactPreference": "sms",
+      "consentGiven": true,
+      "message": "Looking for full interior cleanup on a minivan.",
+      "score": 81,
+      "grade": "A",
+      "scoreReasons": [
+        "Owned channel lead with consent and service detail.",
+        "Buyer territory aligned."
+      ],
+      "buyerId": "buyer-shinecraft",
+      "status": "sold",
+      "pricePerLead": 55,
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt-1005",
+          "label": "Lead sold to ShineCraft Auto Spa",
+          "timestamp": "2026-04-05T18:40:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "lead-1006",
+      "createdAt": "2026-04-05T17:05:00.000Z",
+      "updatedAt": "2026-04-05T17:05:00.000Z",
+      "name": "Elaine Brooks",
+      "email": "elaine@example.com",
+      "phone": "",
+      "city": "Tampa",
+      "zip": "33610",
+      "serviceType": "lawn-care",
+      "source": "Facebook Group",
+      "campaign": "community-post",
+      "urgency": "researching",
+      "budgetBand": "value",
+      "propertyType": "renter",
+      "contactPreference": "email",
+      "consentGiven": false,
+      "message": "Need pricing for a small duplex lawn.",
+      "score": 49,
+      "grade": "D",
+      "scoreReasons": [
+        "Missing consent and weak contact data require review."
+      ],
+      "buyerId": null,
+      "status": "review",
+      "pricePerLead": 0,
+      "notes": [],
+      "timeline": [
+        {
+          "id": "evt-1006",
+          "label": "Held for manual compliance review",
+          "timestamp": "2026-04-05T17:06:00.000Z"
+        }
+      ]
+    }
+  ],
+  "outreach": [
+    {
+      "id": "outreach-2001",
+      "createdAt": "2026-04-06T12:40:00.000Z",
+      "scheduledFor": "2026-04-06T12:40:00.000Z",
+      "leadId": "lead-1001",
+      "buyerId": null,
+      "playbookId": "playbook-detailing",
+      "audience": "lead",
+      "channel": "sms",
+      "status": "queued",
+      "subject": "Ariana Lopez lead",
+      "message": "Hi Ariana Lopez, we received your Auto Detailing request in Tampa. Reply YES and we will line up a vetted local shop fast.",
+      "lastResult": null
+    },
+    {
+      "id": "outreach-2002",
+      "createdAt": "2026-04-06T11:20:00.000Z",
+      "scheduledFor": "2026-04-06T11:35:00.000Z",
+      "leadId": "lead-1002",
+      "buyerId": "buyer-greenline",
+      "playbookId": "playbook-lawn",
+      "audience": "buyer",
+      "channel": "sms",
+      "status": "sent",
+      "subject": "Marcus Hill lead",
+      "message": "New lawn lead for Greenline Lawn Co: Marcus Hill, 813-555-0198, Brandon, urgency today.",
+      "lastResult": "buyer-accepted"
+    },
+    {
+      "id": "outreach-2003",
+      "createdAt": "2026-04-06T10:05:00.000Z",
+      "scheduledFor": "2026-04-06T10:23:00.000Z",
+      "leadId": "lead-1003",
+      "buyerId": "buyer-primewash",
+      "playbookId": "playbook-default",
+      "audience": "buyer",
+      "channel": "email",
+      "status": "queued",
+      "subject": "New detailing lead in Orlando",
+      "message": "Route to Prime Wash Exteriors: Nina Patel, 407-555-0177, nina@example.com, budget mid, urgency this-month.",
+      "lastResult": null
+    }
+  ]
+}
